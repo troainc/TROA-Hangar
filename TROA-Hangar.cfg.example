@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TroaHangerConfig>
-  <!-- TROA-Hangar configuration. After editing your installed plugin config, run !hangaradmin reload in-game. -->
+  <!-- TROA-Hanger configuration. After editing your installed plugin config, run !hangaradmin reload in-game. -->
   <!-- Keep Discord webhook URLs private. Do not share them or include them in public releases. -->
   <!-- CORE STORAGE -->
   <Enabled>true</Enabled>
+  <!-- Player-facing chat, notification, and LCD name. This does not change your Discord webhook name. -->
+  <InGameDisplayName>Hangar+</InGameDisplayName>
   <!-- Leave blank to use the plugin's default TROA-HangerData folder. -->
   <StorageRootDirectory></StorageRootDirectory>
   <EnableTroaStorage>true</EnableTroaStorage>
-  <!-- Cross-server storage is reserved for future support. -->
+  <!-- Nexus cross-server storage requires one shared directory used as StorageRootDirectory on every server. -->
   <EnableCrossServerStorage>false</EnableCrossServerStorage>
+  <EnableNexusIntegration>false</EnableNexusIntegration>
+  <NexusMarketChannelId>872034190421</NexusMarketChannelId>
+  <NexusCatalogRefreshSeconds>60</NexusCatalogRefreshSeconds>
+  <CrossServerSharedStorageDirectory></CrossServerSharedStorageDirectory>
+  <CrossServerLockTimeoutMinutes>15</CrossServerLockTimeoutMinutes>
   <!-- KEEN GRID STORAGE (OPTIONAL): enable after binding a Keen Services Terminal with !hangaradmin terminalhere. -->
   <EnableKeenGridStorage>false</EnableKeenGridStorage>
   <!-- Set automatically by !hangaradmin terminalhere. Leave 0 if disabled. -->
@@ -24,10 +31,27 @@
   <AllowStaticGrids>true</AllowStaticGrids>
   <!-- MARKET -->
   <EnableMarket>true</EnableMarket>
+  <!-- Existing LCD/text-surface blocks opt in with the configured brand name. -->
+  <EnableMarketLcdDisplays>true</EnableMarketLcdDisplays>
+  <MarketLcdNameTag>[HANGAR+ MARKET]</MarketLcdNameTag>
+  <MarketLcdRefreshSeconds>15</MarketLcdRefreshSeconds>
+  <MarketLcdRowsPerPage>10</MarketLcdRowsPerPage>
+  <EnableBlackmarket>false</EnableBlackmarket>
+  <BlackmarketListingFeeCredits>0</BlackmarketListingFeeCredits>
+  <BlackmarketRevenueFactionTag>TRO</BlackmarketRevenueFactionTag>
+  <BlackmarketAccessSteamIds>
+    <!-- <string>76561198000000000</string> -->
+  </BlackmarketAccessSteamIds>
   <MarketCommandCooldownSeconds>3</MarketCommandCooldownSeconds>
   <MaxMarketOffersPerPlayer>3</MaxMarketOffersPerPlayer>
   <!-- Set false to prevent purchases and credit transfers while keeping listings/bids available. -->
   <EnableEconomyTransactions>true</EnableEconomyTransactions>
+  <!-- OPTIONAL TROA ECON+ INTEGRATION. When true and Econ+ is installed, grid/Blackmarket/auction sales use Econ+ durable escrow (hold, capture, release). When false or Econ+ is absent, the native economy is used. Hangar+ never requires Econ+. -->
+  <EnableEconPlusIntegration>false</EnableEconPlusIntegration>
+  <!-- Minimum Econ+ API version Hangar+ will bind to. Leave at 1.1.0 unless directed otherwise. -->
+  <EconPlusMinimumApiVersion>1.1.0</EconPlusMinimumApiVersion>
+  <!-- Label recorded on Econ+ transactions created by Hangar+. Appears in Econ+ audits, never in public webhooks. -->
+  <EconPlusPurposeLabel>Hangar+ Market</EconPlusPurposeLabel>
   <!-- BID TIMERS: live offers use this duration. Use 0 for unlimited live bidding. -->
   <LiveBidDurationMinutes>1440</LiveBidDurationMinutes>
   <!-- Timed offers use the seller's requested minutes, constrained by these settings. Use 0 in the command for the default. -->
@@ -48,7 +72,9 @@
   <!-- Paste the complete HTTPS Discord webhook URL below, not only the webhook ID. -->
   <EnableDiscordMarketWebhook>false</EnableDiscordMarketWebhook>
   <DiscordMarketWebhookUrl></DiscordMarketWebhookUrl>
-  <DiscordMarketWebhookName>TROA-Hangar</DiscordMarketWebhookName>
+  <DiscordMarketWebhookName>TROA-Hanger</DiscordMarketWebhookName>
+  <!-- Optional HTTPS image URL (for example your server logo) shown as the thumbnail on every market embed. Leave blank for none. -->
+  <DiscordMarketThumbnailUrl></DiscordMarketThumbnailUrl>
   <!-- PRIVATE PLAYER CONFIRMATIONS: in-game confirmations work without Discord and are enabled by default. -->
   <EnableMarketInGameConfirmations>true</EnableMarketInGameConfirmations>
   <!-- Discord DMs require a bot token and SteamID:DiscordUserID mappings because webhooks cannot send private messages. -->
@@ -57,9 +83,6 @@
   <DiscordMarketPlayerMappings>
     <!-- <string>76561198000000000:123456789012345678</string> -->
   </DiscordMarketPlayerMappings>
-  <!-- MARKET AUDIT WEBHOOK (PRIVATE ADMIN CHANNEL): leave disabled until you paste a complete Discord webhook URL. -->
-  <EnableMarketAuditWebhook>false</EnableMarketAuditWebhook>
-  <MarketAuditWebhookUrl></MarketAuditWebhookUrl>
   <!-- OPTIONAL ECONOMY FEES (reserved for future use) -->
   <ChargeForStorage>false</ChargeForStorage>
   <StorageFeeCredits>0</StorageFeeCredits>
