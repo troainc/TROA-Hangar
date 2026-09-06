@@ -1,4 +1,4 @@
-# TROA-Hangar
+# Hangar+
 
 TROA-Hangar is a clean Torch plugin for managing server-approved Space Engineers grid storage. It does not use or package any Quantum Hangar code. QC data can be copied with the separate migration tool in `tools/QC-to-TROA-Hanger-Migrator`.
 
