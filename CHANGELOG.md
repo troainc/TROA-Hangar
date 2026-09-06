@@ -1,5 +1,13 @@
 # Hangar+ Changelog
 
+## v2.0.0-alpha.5.1 - Webhook Restore, Prettier Cards & Ship Types
+
+- Fixes the Discord market webhook: real market cards were not posting after the previous rich-embed change. Cards now use a single reliably rendered embed and post again.
+- Redesigns the market card: sectioned Ship Registry / Market Exchange / Transmission layout with emoji, per-event colour, a live countdown, and a progress bar for timed auctions.
+- Shows the last webhook delivery error (Discord HTTP status and response, never the URL) in `!hangaradmin webhook status` so delivery problems are diagnosable.
+- Adds defined ship types with emoji — Fighter, Assault, Warship, Capital Ship, Carrier, Miner, Hauler, Explorer, Industrial, Station, Rover, Support, Drone, Trader — shown on cards and listed in help.
+- Builds for .NET Framework 4.8 with zero warnings and zero errors.
+
 ## Unreleased - Hangar+ Market Expansion
 
 - Adds explicit market transaction states and a durable recovery journal.
