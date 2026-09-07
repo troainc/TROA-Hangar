@@ -6,6 +6,33 @@ TROA-Hangar is a clean Torch plugin for managing server-approved Space Engineers
 
 `v2.0.0-alpha.5.1` is the current test build for Torch on .NET Framework 4.8. The package is `TROA-Hangar-v2.0.0-alpha.5.1-webhook-fix.zip` with SHA-256 `76CFF3ED1F57D7EA2E82C1484486FC9EF4D27F82CA098347D6E1C2A1C8CFD88F`. It uses **TROA Storage by default**. Keen Grid Storage is optional and is not required for player storage, listing, selling, bidding, or buying. Market, Blackmarket, and economy settlement work standalone, and can optionally settle through the **TROA Econ+** escrow API when that plugin is installed.
 
+## How to Use Hangar+
+
+Hangar+ is server-side only: **no client mod, no downloads for players**. Everything is done with in-game chat commands (default prefix `!hangar`) and the XML config. Run `!hangar help` in game for the full player list, or `!hangaradmin help` for the owner list.
+
+### For server owners (one-time setup)
+
+1. **Install** the plugin ZIP through Torch and restart Torch. On first start it creates `TROA-Hanger.cfg` and the storage folders.
+2. **Confirm it is live:** run `!hangaradmin status`. It shows TROA Storage, market, economy provider, and whether Keen is enabled (Keen is optional — storage, market, and economy all work without it).
+3. **Optional — Discord cards:** create a Discord channel webhook, set `EnableDiscordMarketWebhook` to `true` and paste the full HTTPS URL into `DiscordMarketWebhookUrl` (add a logo with `DiscordMarketThumbnailUrl`), then `!hangaradmin reload` and `!hangaradmin webhook test`. A card should appear in the channel; if not, `!hangaradmin webhook status` shows the exact reason.
+4. **Optional — Econ+ escrow:** with the TROA Econ+ plugin installed, set `EnableEconPlusIntegration` to `true` and `!hangaradmin reload`. Market, Blackmarket, and auction sales then settle through Econ+ durable escrow; `!hangaradmin econ` shows the active provider. Without it, the native Space Engineers economy is used.
+5. **Optional — peak pricing, Blackmarket, limits, Keen terminal:** see the feature sections below and the **Configuration Reference**. Apply config edits with `!hangaradmin reload` (a bad edit is rejected and your running config is kept).
+
+### For players (the basics)
+
+1. **Store a ship:** look directly at a grid you own (within 1,000 m) and run `!hangar store <name>`. It moves into your personal Hangar+.
+2. **See your ships:** `!hangar list`. **Bring one back:** `!hangar load <grid-id>` — it spawns in clear space next to you.
+3. **Sell in one step:** look at the ship and run `!hangar sell <price> <type> <live|timed> <minutes> <description>`, e.g. `!hangar sell 500000 Fighter timed 120 "Combat-ready interceptor"`. Use `live 0` for a buy-now listing or `timed <minutes>` for an auction. Ship types (with emoji on the card) include Fighter, Assault, Warship, Capital Ship, Carrier, Miner, Hauler, Explorer, Industrial, Station, Rover, Support, Drone, Trader.
+4. **Browse & buy:** `!hangar market` lists what's for sale. **Buy now:** `!hangar buy <market-id>`. **Bid on an auction:** `!hangar bid <market-id> <price>` — the highest valid bid wins when the timer ends.
+5. **Claim what you bought:** move to open space and run `!hangar claim <claim-code>` to deploy your new ship.
+6. **Show it off:** look at any LCD/text panel on a grid you own and run `!hangar lcd here` to turn it into a live showroom of your listings, or `!hangar lcd feature <market-id>` to spotlight one ship. See **Player ship-sale showrooms**.
+
+### Typical flow at a glance
+
+`store` → `sell` (or `market offer`) → buyers `bid`/`buy` → seller is paid, buyer `claim`s the ship. If a listing is cancelled or an auction ends with no sale, the ship returns to the seller's Hangar+ automatically.
+
+For faction-owned ships use the `!factionhangar` commands; for restricted listings see **Blackmarket**, and for item trading see the **Commodity exchange**. Every command is listed under **Commands** below.
+
 ### What Works
 
 - Creates portable storage folders: `PlayersHangers`, `FactionHangers`, and `MarketHangers`.
