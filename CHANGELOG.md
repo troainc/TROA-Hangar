@@ -1,5 +1,12 @@
 # Hangar+ Changelog
 
+## v2.0.0-alpha.5.2 - Market Search/Classify, Cross-Server Buying & Commodity Escrow
+
+- Adds market commands: `!hangar market search` (search active listings by text, category, and station), `!hangar market classify` (set a listing's category and station), `!hangar market remotebuy` (reserve a listing on another Nexus server), and `!hangar market remotecommit` (escrow credits and commit a cross-server purchase).
+- Cross-server buyers are notified in game with their claim code as soon as the source server completes delivery.
+- Commodity sell-order fills settle through the durable economy escrow (Econ+ when enabled); commodity buy orders keep their pre-escrowed native credit pool.
+- Builds for .NET Framework 4.8 with zero warnings and zero errors.
+
 ## v2.0.0-alpha.5.1 - Webhook Restore, Prettier Cards & Ship Types
 
 - Fixes the Discord market webhook: real market cards were not posting after the previous rich-embed change. Cards now use a single reliably rendered embed and post again.

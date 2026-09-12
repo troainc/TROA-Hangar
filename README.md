@@ -4,7 +4,7 @@ TROA-Hangar is a clean Torch plugin for managing server-approved Space Engineers
 
 ## Current Alpha Build
 
-`v2.0.0-alpha.5.1` is the current test build for Torch on .NET Framework 4.8. The package is `TROA-Hangar-v2.0.0-alpha.5.1-webhook-fix.zip` with SHA-256 `76CFF3ED1F57D7EA2E82C1484486FC9EF4D27F82CA098347D6E1C2A1C8CFD88F`. It uses **TROA Storage by default**. Keen Grid Storage is optional and is not required for player storage, listing, selling, bidding, or buying. Market, Blackmarket, and economy settlement work standalone, and can optionally settle through the **TROA Econ+** escrow API when that plugin is installed.
+`v2.0.0-alpha.5.2` is the current test build for Torch on .NET Framework 4.8. The package is `TROA-Hangar-v2.0.0-alpha.5.2-market-commands.zip` with SHA-256 `A2BB8A245BB98B107C50BD1F4FB1B20F7410819C7CC74FF59D8C031F05269A69`. It uses **TROA Storage by default**. Keen Grid Storage is optional and is not required for player storage, listing, selling, bidding, or buying. Market, Blackmarket, and economy settlement work standalone, and can optionally settle through the **TROA Econ+** escrow API when that plugin is installed.
 
 ## How to Use Hangar+
 
@@ -59,7 +59,7 @@ For faction-owned ships use the `!factionhangar` commands; for restricted listin
 - Supports physical commodity sell custody, escrowed buy orders, claimable commodity vaults, reputation, and analytics.
 - Uses the community-neutral **Hangar+** name in game by default. Owners can change it without altering their configured Discord webhook identity.
 - Optionally settles grid-market purchases, timed auctions, and Blackmarket sales through the **TROA Econ+** durable, idempotent escrow API (hold, capture, release) when Econ+ is installed and enabled; otherwise uses the native economy. Econ+ is never required.
-- Posts rich, structured Discord market cards with a thumbnail, per-event colour, ship-class emoji, inline fields, a live Discord countdown, and a progress bar for timed auctions.
+- Posts rich, reliable Discord market cards with a thumbnail, per-event colour, ship-class emoji, a sectioned Ship Registry / Market Exchange / Transmission layout, a live Discord countdown, and a progress bar for timed auctions.
 - Lets players turn any in-game LCD or text panel they own into a live ship-sale showroom, or feature a single listing, with `!hangar lcd` commands.
 
 ### Test Setup
