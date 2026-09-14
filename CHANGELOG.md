@@ -1,5 +1,16 @@
 # Hangar+ Changelog
 
+## v2.0.0-alpha.5.4 - Fix duplicate market command path
+
+- Fixes a Torch startup error (`command path hangar market is already registered`) caused by the standalone `!hangar market` alias colliding with the `market …` subcommand group. Removed the alias: `!hangar market list` still lists offers and every other `market …` command is unchanged; a bare `!hangar market` now shows the subcommand list.
+- Builds with zero warnings and zero errors on .NET Framework 4.8.
+
+## v2.0.0-alpha.5.3 - Ship Leasing, Auto-Impound & Econ+ v2.1 Integration
+
+- Adds optional ship leasing / financing with auto-impound: recurring payment plans held in Hangar+ custody, admin lease/impound commands, and financed market purchases (`!hangar market finance`). All default off; every credit moves through the economy authority.
+- Adds a reflection-bound Econ+ v2.1 service surface (territory docking, location pricing, insurance, contracts), all default off and capability-gated; Hangar+ still never requires Econ+.
+- Builds with zero warnings and zero errors on .NET Framework 4.8.
+
 ## v2.0.0-alpha.5.2 - Market Search/Classify, Cross-Server Buying & Commodity Escrow
 
 - Adds market commands: `!hangar market search` (search active listings by text, category, and station), `!hangar market classify` (set a listing's category and station), `!hangar market remotebuy` (reserve a listing on another Nexus server), and `!hangar market remotecommit` (escrow credits and commit a cross-server purchase).
