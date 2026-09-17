@@ -135,6 +135,7 @@ For faction-owned ships use the `!factionhangar` commands; for restricted listin
 - `!hangaradmin player <steam-id>` *(Torch admin)*
 - `!hangaradmin offers` *(Torch admin)*
 - `!hangaradmin removeoffer <offer-id>` *(Torch admin)*
+- `!hangaradmin reopen <market-id>` *(Torch admin; reopens a stuck or closed listing)*
 - `!hangaradmin troastorage <true|false>` *(Torch admin)*
 - `!hangaradmin market <true|false>` *(Torch admin)*
 - `!hangaradmin economy <true|false>` *(Torch admin)*
@@ -148,6 +149,21 @@ For faction-owned ships use the `!factionhangar` commands; for restricted listin
 - `!hangaradmin webhook test` *(Torch admin)*
 - `!hangaradmin name <display-name>` *(Torch admin; changes in-game chat, notification, and LCD branding only)*
 - `!hangaradmin reload` *(Torch admin; reloads and validates `TROA-Hanger.cfg`)*
+
+## Admin Overrides & Recovery
+
+Admins can override the normal player restrictions on market commands by appending the keyword **`override`** to the end of the command. The keyword only takes effect for a Torch admin — a non-admin who types it gets no bypass. (`admin` and `force` are accepted as synonyms.)
+
+| Command | Normal restriction | With `override` (admin only) |
+|---|---|---|
+| `!hangar bid <market-id> <price> override` | Cannot bid on your own offer; market cooldown applies | Admin may bid on their own offer; cooldown skipped |
+| `!hangar buy <market-id> override` | Cannot buy your own offer; market cooldown applies | Admin may buy their own offer; cooldown skipped |
+| `!hangar claim <grid-id> override` | You can only claim/deploy your own stored grids | Admin may deploy **any** player's stored grid at their own location (recovery) |
+| `!hangar load <grid-id> override` | You can only load your own stored grids | Same as claim — admin may load any player's stored grid |
+
+Use these for moderation and testing (for example, an admin buying or bidding on a listing to verify it, or deploying a player's stuck grid for them). An admin buying their own offer moves credits from and back to the same account, so nothing is minted or lost.
+
+**Reopen a stuck listing:** `!hangaradmin reopen <market-id>` reactivates a listing that got stuck or closed (for example after an interrupted purchase or a cross-server reservation that did not settle). It resets the listing to active, clears any stale transaction and expired deadline, and reopens its Discord card. For safety it **refuses** listings that were already sold or are awaiting a buyer claim, and it requires the grid to still be in market custody, so a delivered grid can never be duplicated. If a listing cannot be reopened safely, use `!hangaradmin removeoffer` (returns the grid to its owner) or `!hangaradmin marketrecover` instead.
 
 ## Standalone Discord Market Embeds
 
