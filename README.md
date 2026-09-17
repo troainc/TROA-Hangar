@@ -4,7 +4,7 @@ TROA-Hangar is a clean Torch plugin for managing server-approved Space Engineers
 
 ## Current Alpha Build
 
-`v2.0.0-alpha.5.4` is the current test build for Torch on .NET Framework 4.8. The package is `TROA-Hangar-v2.0.0-alpha.5.4-market-command-fix.zip` with SHA-256 `7106250927A1F7EF53B69C66E37818BEE824AF3DD343FB7667BA4A508DBD5413`. It uses **TROA Storage by default**. Keen Grid Storage is optional and is not required for player storage, listing, selling, bidding, or buying. Market, Blackmarket, and economy settlement work standalone, and can optionally settle through the **TROA Econ+** escrow API when that plugin is installed.
+`v2.0.0-alpha.5.5` is the current test build for Torch on .NET Framework 4.8. The package is `TROA-Hangar-v2.0.0-alpha.5.5-commodity-param-fix.zip` with SHA-256 `120956672FC93E21F25DAF162755D29CDFF9E1679C8A69CE9A9C77399F0DB609`. It uses **TROA Storage by default**. Keen Grid Storage is optional and is not required for player storage, listing, selling, bidding, or buying. Market, Blackmarket, and economy settlement work standalone, and can optionally settle through the **TROA Econ+** escrow API when that plugin is installed.
 
 ## How to Use Hangar+
 

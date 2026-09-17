@@ -1,5 +1,10 @@
 # Hangar+ Changelog
 
+## v2.0.0-alpha.5.5 - Fix all in-game commands failing to register
+
+- Fixes every Hangar+ chat command echoing as plain text with no response. The commodity commands used a `decimal` quantity parameter, which Torch cannot parse; that threw during registration and aborted the whole plugin's commands (`!hangar`, `!hangaradmin`, `!market`). Quantities are now parsed from text inside the command; behavior is unchanged. With the 5.4 duplicate-path fix, the plugin now registers cleanly.
+- Builds with zero warnings and zero errors on .NET Framework 4.8.
+
 ## v2.0.0-alpha.5.4 - Fix duplicate market command path
 
 - Fixes a Torch startup error (`command path hangar market is already registered`) caused by the standalone `!hangar market` alias colliding with the `market …` subcommand group. Removed the alias: `!hangar market list` still lists offers and every other `market …` command is unchanged; a bare `!hangar market` now shows the subcommand list.
