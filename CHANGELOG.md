@@ -1,5 +1,11 @@
 # Hangar+ Changelog
 
+## v2.0.0-alpha.5.6 - Admin override keyword & reopen listing
+
+- Adds an admin-only `override` keyword on player market commands: `!hangar bid <market-id> <price> override` and `!hangar buy <market-id> override` let an admin bid on / buy their own offer and skip the cooldown; `!hangar claim <grid-id> override` deploys any player's stored grid for recovery. Non-admins passing the keyword get no bypass.
+- Adds `!hangaradmin reopen <market-id>` to reactivate a stuck or closed listing (refuses sold/awaiting-claim listings and requires the grid still in custody, so it cannot duplicate a delivered grid).
+- Builds with zero warnings and zero errors on .NET Framework 4.8.
+
 ## v2.0.0-alpha.5.5 - Fix all in-game commands failing to register
 
 - Fixes every Hangar+ chat command echoing as plain text with no response. The commodity commands used a `decimal` quantity parameter, which Torch cannot parse; that threw during registration and aborted the whole plugin's commands (`!hangar`, `!hangaradmin`, `!market`). Quantities are now parsed from text inside the command; behavior is unchanged. With the 5.4 duplicate-path fix, the plugin now registers cleanly.
