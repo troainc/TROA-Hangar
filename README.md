@@ -27,6 +27,17 @@ Hangar+ is server-side only: **no client mod, no downloads for players**. Everyt
 5. **Claim what you bought:** move to open space and run `!hangar claim <claim-code>` to deploy your new ship.
 6. **Show it off:** look at any LCD/text panel on a grid you own and run `!hangar lcd here` to turn it into a live showroom of your listings, or `!hangar lcd feature <market-id>` to spotlight one ship. See **Player ship-sale showrooms**.
 
+### For admins (override & recovery)
+
+Add the word **`override`** to the **end** of a player command to bypass its normal restrictions. It only works for Torch admins — a regular player typing it gets no bypass.
+
+- `!hangar bid <market-id> <price> override` — bid on your own listing, no cooldown
+- `!hangar buy <market-id> override` — buy your own listing, no cooldown
+- `!hangar claim <grid-id> override` (or `!hangar load <grid-id> override`) — deploy **any** player's stored grid at your location
+- `!hangaradmin reopen <market-id>` — reopen a stuck or closed market listing (refuses sold/awaiting-claim listings)
+
+Example: `!hangar bid A1B2C3 250000 override`. Full details in **Admin Overrides & Recovery** below.
+
 ### Typical flow at a glance
 
 `store` → `sell` (or `market offer`) → buyers `bid`/`buy` → seller is paid, buyer `claim`s the ship. If a listing is cancelled or an auction ends with no sale, the ship returns to the seller's Hangar+ automatically.
