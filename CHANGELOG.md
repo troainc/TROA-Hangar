@@ -1,5 +1,13 @@
 # Hangar+ Changelog
 
+## v2.0.0-alpha.5.7 - Commands from Discord
+
+- Hangar+ commands now work from Discord through the TROA Monitor+ bridge (Monitor+ v1.1.5K4 or newer). **Root cause of the "nothing happens in Discord" report:** Monitor+ forwarded plugin commands to Torch but sent their replies only to the server log. That is fixed in Monitor+ v1.1.5K4, which now posts Hangar+ replies back to the channel.
+- Identity-based player commands now work for a **linked Discord player even while they are offline**. Hangar+ reads the forwarded sender's Steam ID when there is no in-game player. This covers `list`, `clean`, `market list/search/details/classify/offer/bid/buy/finance/cancel`, `bid`, `buy`, `lease list/pay`, `redeem`, `lcd list`, insurance and contract commands, `blackmarket list/listoffer`, `factionhangar list`, and `market reputation`/`commodity cancel`.
+- Commands that need your character in the world (`store`, `sell`, `load`, `claim`, `lcd here/feature/clear`, Keen store/retrieve, faction store/load, commodity sell/fill/claim/locprice) now reply "must be used in game" from Discord instead of a generic error. Grid safety is unchanged: nothing that spawns, removes, or moves a grid runs without a live in-game player.
+- The admin `override` keyword stays in-game only. A Discord-forwarded command never has an in-game admin, so it can never trigger an override.
+- No config changes. Builds with zero warnings and zero errors on .NET Framework 4.8.
+
 ## v2.0.0-alpha.5.6 - Admin override keyword & reopen listing
 
 - Adds an admin-only `override` keyword on player market commands: `!hangar bid <market-id> <price> override` and `!hangar buy <market-id> override` let an admin bid on / buy their own offer and skip the cooldown; `!hangar claim <grid-id> override` deploys any player's stored grid for recovery. Non-admins passing the keyword get no bypass.

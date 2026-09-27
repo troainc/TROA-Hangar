@@ -4,7 +4,7 @@ TROA-Hangar is a clean Torch plugin for managing server-approved Space Engineers
 
 ## Current Alpha Build
 
-`v2.0.0-alpha.5.6` is the current test build for Torch on .NET Framework 4.8. The package is `TROA-Hangar-v2.0.0-alpha.5.6-admin-override.zip` with SHA-256 `1F59FEDAB5BFC543C5E65CFA0CF5D888E086B5EEEF950812892256EBCF1D0EBB`. It uses **TROA Storage by default**. Keen Grid Storage is optional and is not required for player storage, listing, selling, bidding, or buying. Market, Blackmarket, and economy settlement work standalone, and can optionally settle through the **TROA Econ+** escrow API when that plugin is installed.
+`v2.0.0-alpha.5.7` is the current test build for Torch on .NET Framework 4.8. The package is `TROA-Hangar-v2.0.0-alpha.5.7-discord-commands.zip` with SHA-256 `45733A2AFD5B8D80409B6E7E52758F4B27CBF10D71823CF215DD781FD380D9CE`. It uses **TROA Storage by default**. Keen Grid Storage is optional and is not required for player storage, listing, selling, bidding, or buying. Market, Blackmarket, and economy settlement work standalone, and can optionally settle through the **TROA Econ+** escrow API when that plugin is installed.
 
 ## How to Use Hangar+
 
@@ -37,6 +37,15 @@ Add the word **`override`** to the **end** of a player command to bypass its nor
 - `!hangaradmin reopen <market-id>` — reopen a stuck or closed market listing (refuses sold/awaiting-claim listings)
 
 Example: `!hangar bid A1B2C3 250000 override`. Full details in **Admin Overrides & Recovery** below.
+
+### Using Hangar+ from Discord
+
+Hangar+ commands can be typed in your Discord command channel through the **TROA Monitor+** bridge (**v1.1.5K4 or newer** — older Monitor+ builds forwarded the command but never showed Hangar+'s reply). Replies appear in the same channel under a "Command Result" card.
+
+- **Admins:** run any `!hangaradmin` command, e.g. `!hangaradmin status`, `!hangaradmin offers`, `!hangaradmin webhook test`, `!hangaradmin reopen <market-id>`. In Monitor+, set `AllowAnyTorchCommand=true` or add `hangaradmin` (and `hangar`, `market`, `blackmarket`, `factionhangar`) to `AllowedTorchCommands`.
+- **Players:** link once with `!link <your-steam-id-64>` (Monitor+ sends a confirmation code in game), then run commands **as yourself — even while offline**: `!hangar market list`, `!hangar market search <text>`, `!hangar bid <market-id> <price>`, `!hangar buy <market-id>`, `!hangar list`, `!hangar lease list`, `!market reputation`, `!blackmarket list`, `!factionhangar list`. The allowed list is Monitor+'s `PlayerTorchCommands` setting.
+- **In game only:** anything that needs your character in the world — `store`, `sell`, `load`, `claim`, LCD setup, Keen store/retrieve, faction store/load, commodity sell/fill/claim. From Discord these reply "must be used in game". Ships bought from Discord wait safely in your Hangar+; claim them in game with `!hangar claim <claim-code>`.
+- Admin `override` only works in game. Market webhooks (Discord cards) fire the same way whether a bid/buy came from game or Discord.
 
 ### Typical flow at a glance
 
