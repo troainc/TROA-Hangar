@@ -1,5 +1,12 @@
 # Hangar+ Changelog
 
+## v2.0.0-alpha.5.8 - Safer grid deployment search
+
+- Hangar estimates the stored ship's clearance radius and searches farther from the player in six directions instead of checking four nearby points.
+- Planet checks use the planet body and actual closest surface, avoiding false blocks from the planet's full world AABB. Other grids, voxel maps, and entities still block overlapping space.
+- Failed searches leave the ship safely stored. Build/package passed with zero warnings and errors; dedicated-server spawn acceptance remains pending.
+- Package: `TROA-Hangar-v2.0.0-alpha.5.8-spawn-clearance.zip`; SHA-256 `74D1EE3FB65257E1EA391906AEC39165B98CE6A7FB5B9B9D5A6DB7CCD1DB7265`.
+
 ## v2.0.0-alpha.5.7 - Commands from Discord
 
 - Hangar+ commands now work from Discord through the TROA Monitor+ bridge (Monitor+ v1.1.5K4 or newer). **Root cause of the "nothing happens in Discord" report:** Monitor+ forwarded plugin commands to Torch but sent their replies only to the server log. That is fixed in Monitor+ v1.1.5K4, which now posts Hangar+ replies back to the channel.
