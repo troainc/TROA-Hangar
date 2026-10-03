@@ -86,3 +86,8 @@
 - Sends private in-game confirmations from **TROA Market Exchange** to sellers, buyers, and bidders.
 - Adds optional Discord DM confirmation embeds using a bot token and `SteamID:DiscordUserID` mappings.
 - Refreshes existing active market cards once after startup so they receive the new countdown format.
+## Documentation - 2026-10-03
+
+- Added a player guide, server-owner install and setup guide, configuration reference, command reference, and troubleshooting guide for the current public alpha.5.8 package.
+- Clarified that Hangar+ owns grid storage, markets, and market webhooks; Monitor+ only relays configured commands; Econ+ settlement is optional.
+- Kept the existing full sample configuration as the public config reference and called out secret fields that must remain private.

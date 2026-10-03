@@ -293,3 +293,7 @@ See `ARCHITECTURE.md` for the full roadmap and compatibility rules.
 To enable it, install both plugins and set `EnableEconPlusIntegration` to `true`. Hangar+ discovers Econ+ at runtime (by reflection — there is no hard assembly dependency) and, if a compatible API version is present (`EconPlusMinimumApiVersion`, default `1.1.0`), routes grid-market purchases, timed-auction settlements, and Blackmarket sales through Econ+ **durable, idempotent escrow**: the buyer's funds are held before the grid moves, captured to the seller only after custody transfers, and released or refunded on any failure. Retrying the same purchase reuses the existing hold instead of charging twice.
 
 When the setting is off, Econ+ is not installed, or its API version is too low, Hangar+ automatically uses the native Space Engineers economy. **Econ+ is never required.** Listing fees, Blackmarket fees, and peak-hour surcharges are deposited to the configured faction treasury regardless of provider, because Econ+ escrow is player-to-player. Run `!hangaradmin econ` to see the active provider and binding status.
+
+## Guides
+
+The README is the quick start. Step-by-step instructions are in [`docs/README.md`](docs/README.md): player use, server-owner setup, configuration, commands, and troubleshooting. The full public sample XML remains [`TROA-Hangar.cfg.example`](TROA-Hangar.cfg.example).
