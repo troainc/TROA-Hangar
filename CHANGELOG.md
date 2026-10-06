@@ -1,3 +1,9 @@
+## Public operator documentation expansion - 2026-10-06
+
+- Added a detailed user guide under docs/USER_GUIDE.md and linked it from the documentation index and root README.
+- Documented current setup, feature ownership, command/config references, operational workflows, safety boundaries, and version/status limitations using the published behavior.
+- Added repository-local context, contribution instructions, and a dated documentation log entry. No private source or credentials are included.
+
 # Hangar+ Changelog
 
 ## v2.0.0-alpha.5.8 - Safer grid deployment search
@@ -91,3 +97,4 @@
 - Added a player guide, server-owner install and setup guide, configuration reference, command reference, and troubleshooting guide for the current public alpha.5.8 package.
 - Clarified that Hangar+ owns grid storage, markets, and market webhooks; Monitor+ only relays configured commands; Econ+ settlement is optional.
 - Kept the existing full sample configuration as the public config reference and called out secret fields that must remain private.
+

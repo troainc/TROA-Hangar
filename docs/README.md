@@ -9,3 +9,8 @@ Use these guides with the public [sample configuration](../TROA-Hangar.cfg.examp
 - [Troubleshooting](TROUBLESHOOTING.md): common storage, market, Discord, and deployment problems.
 
 Hangar+ owns Hangar storage, market listings, auctions, claims, commodity exchange, and its market webhook. Monitor+ can relay eligible chat commands from Discord; Econ+ can optionally handle durable credit escrow. Neither is required for basic Hangar storage or market operation.
+
+## Start here
+
+Read the [detailed user and operator guide](USER_GUIDE.md) for supported setup, feature workflows, safe operation, and troubleshooting.
+

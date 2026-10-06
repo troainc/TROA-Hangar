@@ -297,3 +297,9 @@ When the setting is off, Econ+ is not installed, or its API version is too low, 
 ## Guides
 
 The README is the quick start. Step-by-step instructions are in [`docs/README.md`](docs/README.md): player use, server-owner setup, configuration, commands, and troubleshooting. The full public sample XML remains [`TROA-Hangar.cfg.example`](TROA-Hangar.cfg.example).
+
+
+## Documentation
+
+Use the [documentation index](docs/README.md) and [detailed operator guide](docs/USER_GUIDE.md) for setup, everyday use, feature behavior, and troubleshooting. Check the changelog and the current release before applying version-specific instructions.
+
