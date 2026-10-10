@@ -1,3 +1,5 @@
+> **Bifrost Plugin Panel:** In a compatible Admin Overseer release, open **Plugin systems → Open workspace** for TROA Hangar+. The [connection guide](docs/BIFROST-PLUGIN-PANEL.md) covers webserver setup, IPv4/domain access, accounts, permissions, and troubleshooting. Metrics and controls depend on what this installed plugin build actually exposes.
+
 # Hangar+
 
 TROA-Hangar is a clean Torch plugin for managing server-approved Space Engineers grid storage. It does not use or package any Quantum Hangar code. QC data can be copied with the separate migration tool in `tools/QC-to-TROA-Hanger-Migrator`.
