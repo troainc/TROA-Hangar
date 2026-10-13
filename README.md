@@ -8,9 +8,7 @@ TROA-Hangar is a clean Torch plugin for managing server-approved Space Engineers
 
 ## Current Alpha Build
 
-`v2.0.0-alpha.5.8` is the current test build for Torch on .NET Framework 4.8. Package: `TROA-Hangar-v2.0.0-alpha.5.8-spawn-clearance.zip` (SHA-256 `74D1EE3FB65257E1EA391906AEC39165B98CE6A7FB5B9B9D5A6DB7CCD1DB7265`). Hangar searches in six directions using the stored ship's approximate size and checks planet surface clearance without treating the planet's full bounding box as occupied space. It uses **TROA Storage by default**. Keen Grid Storage is optional and is not required for player storage, listing, selling, bidding, or buying. Market, Blackmarket, and economy settlement work standalone, and can optionally settle through the **TROA Econ+** escrow API when that plugin is installed.
-
-> **Restore update in progress:** Saved-position restoration by grid ID or name, including the proposed `-force location` voxel-clear option, is being prepared separately. It is not part of the alpha.5.8 package linked above. Do not use that syntax on the current release; force voxel clearing still needs dedicated-server acceptance.
+`v2.0.0-alpha.5.9` is the current test build for Torch on .NET Framework 4.8. Package: [TROA-Hangar-v2.0.0-alpha.5.9-saved-location-restore.zip](TROA-Hangar-v2.0.0-alpha.5.9-saved-location-restore.zip) (SHA-256 `BA36CDA970ED012589E8DA337CC04D29C580A297DE0A8D3D954140C3CD7795BA`). Player Hangar restores now return a grid to its saved position and orientation. Players can select by stored grid ID or exact name (case-insensitive; quote names with spaces; use an ID if names are duplicated). If voxel terrain blocks the saved footprint, `!hangar load <id-or-name> -force location` permanently clears voxel terrain within the calculated footprint plus 1 m clearance before restoring. Another grid at that location still blocks the load; force never moves or removes grids. The build also includes the six-direction deployment search and planet-surface clearance checks for claim/deployment flows. It uses **TROA Storage by default**. Keen Grid Storage is optional and is not required for player storage, listing, selling, bidding, or buying. Market, Blackmarket, and economy settlement work standalone, and can optionally settle through the **TROA Econ+** escrow API when that plugin is installed.
 
 ## How to Use Hangar+
 
@@ -27,17 +25,11 @@ Hangar+ is server-side only: **no client mod, no downloads for players**. Everyt
 ### For players (the basics)
 
 1. **Store a ship:** look directly at a grid you own (within 1,000 m) and run `!hangar store <name>`. It moves into your personal Hangar+.
-2. **See your ships:** `!hangar list`. **Bring one back:** `!hangar load <grid-id>` — it spawns in clear space next to you.
+2. **See your ships:** `!hangar list`. **Bring one back:** `!hangar load <id-or-name>` restores it at the position and orientation where you stored it. Quote a multiword name, such as `!hangar load "My Fighter"`. If voxel terrain blocks the saved footprint, use `!hangar load <id-or-name> -force location` to permanently clear the grid footprint plus 1 m clearance and restore it. A conflicting grid must be moved first; force never moves or removes grids. Use the grid ID if names are duplicated.
 3. **Sell in one step:** look at the ship and run `!hangar sell <price> <type> <live|timed> <minutes> <description>`, e.g. `!hangar sell 500000 Fighter timed 120 "Combat-ready interceptor"`. Use `live 0` for a buy-now listing or `timed <minutes>` for an auction. Ship types (with emoji on the card) include Fighter, Assault, Warship, Capital Ship, Carrier, Miner, Hauler, Explorer, Industrial, Station, Rover, Support, Drone, Trader.
 4. **Browse & buy:** `!hangar market list` lists what's for sale. **Buy now:** `!hangar buy <market-id>`. **Bid on an auction:** `!hangar bid <market-id> <price>` — the highest valid bid wins when the timer ends.
 5. **Claim what you bought:** move to open space and run `!hangar claim <claim-code>` to deploy your new ship.
 6. **Show it off:** look at any LCD/text panel on a grid you own and run `!hangar lcd here` to turn it into a live showroom of your listings, or `!hangar lcd feature <market-id>` to spotlight one ship. See **Player ship-sale showrooms**.
-
-#### Saved-position restore candidate (not in alpha.5.8)
-
-A separate candidate update is intended to let a player select a stored grid by **either its ID or its name** and return it to the position saved when it was hangared. The proposed syntax is `!hangar load <id-or-name>`; for a name with spaces, use quotes, for example `!hangar load "My Fighter"`. If voxel terrain overlaps the saved footprint, the normal load would refuse placement. The explicit candidate command `!hangar load <id-or-name> -force location` is intended to remove overlapping voxel terrain inside the grid footprint and its clearance before restoring the grid. It would not remove or move other grids.
-
-This is candidate behavior, not a feature of the currently published alpha.5.8 package. Force terrain removal is destructive and the candidate still requires dedicated-server validation; follow the release notes for availability before using these commands.
 
 ### For admins (override & recovery)
 
@@ -45,7 +37,8 @@ Add the word **`override`** to the **end** of a player command to bypass its nor
 
 - `!hangar bid <market-id> <price> override` — bid on your own listing, no cooldown
 - `!hangar buy <market-id> override` — buy your own listing, no cooldown
-- `!hangar claim <grid-id> override` (or `!hangar load <grid-id> override`) — deploy **any** player's stored grid at your location
+- `!hangar claim <grid-id> override` — deploy **any** player's purchased grid at your location
+- `!hangar load <id-or-name> override` — restore **any** player's stored grid at its saved position
 - `!hangaradmin reopen <market-id>` — reopen a stuck or closed market listing (refuses sold/awaiting-claim listings)
 
 Example: `!hangar bid A1B2C3 250000 override`. Full details in **Admin Overrides & Recovery** below.
@@ -99,7 +92,7 @@ For faction-owned ships use the `!factionhangar` commands; for restricted listin
 1. Install the plugin ZIP in Torch and restart Torch.
 2. Run `!hangaradmin status` to confirm that TROA Storage and the market are enabled.
 3. Look directly at a grid you major-own, within 1,000 meters, then run `!hangar store <name>`.
-4. Run `!hangar list`, then `!hangar load <grid-id>` to restore the grid.
+4. Run `!hangar list`, then `!hangar load <id-or-name>` to restore the grid at its saved position. If voxel terrain blocks it, use `!hangar load <id-or-name> -force location` to clear the footprint plus 1 m clearance.
 5. Store another grid and list it with `!hangar market offer <grid-number> <price>` or store-and-list it with `!hangar sell <price> <type> <live|timed> <minutes> <description>`.
 6. Set its presentation and bidding rule: `!hangar market details <market-number> <type> <live|timed> <minutes> <description>`. Use `0` minutes for `live`; timed bids require a positive number of minutes.
 7. Test `!hangar buy <offer-id>` against a live listing. Test `!hangar bid <offer-id> <price>` against a timed listing and let its timer settle. The buyer can move to a clear area and use `!hangar claim <claim-code>` when ready to deploy the purchased ship.
@@ -111,7 +104,8 @@ For faction-owned ships use the `!factionhangar` commands; for restricted listin
 - `!hangar help`
 - `!hangar helper`
 - `!hangar store <name>`
-- `!hangar load <grid-id>`
+- `!hangar load <id-or-name>`
+- `!hangar load <id-or-name> -force location` *(restore at the saved position and permanently clear voxel terrain within the grid footprint plus 1 m clearance)*
 - `!hangar claim <claim-code>` *(deploy a purchased ship)*
 - `!hangar status`
 - `!hangar keen list`
@@ -191,7 +185,7 @@ Admins can override the normal player restrictions on market commands by appendi
 | `!hangar bid <market-id> <price> override` | Cannot bid on your own offer; market cooldown applies | Admin may bid on their own offer; cooldown skipped |
 | `!hangar buy <market-id> override` | Cannot buy your own offer; market cooldown applies | Admin may buy their own offer; cooldown skipped |
 | `!hangar claim <grid-id> override` | You can only claim/deploy your own stored grids | Admin may deploy **any** player's stored grid at their own location (recovery) |
-| `!hangar load <grid-id> override` | You can only load your own stored grids | Same as claim — admin may load any player's stored grid |
+| `!hangar load <id-or-name> override` | You can only load your own stored grids | Admin may load any player's stored grid at its saved location |
 
 Use these for moderation and testing (for example, an admin buying or bidding on a listing to verify it, or deploying a player's stuck grid for them). An admin buying their own offer moves credits from and back to the same account, so nothing is minted or lost.
 

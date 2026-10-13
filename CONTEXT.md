@@ -5,5 +5,5 @@ This repository is the public documentation and approved release surface for TRO
 ## 2026-10-09 — Bifrost Plugin Panel docs
 - README and docs/BIFROST-PLUGIN-PANEL.md explain operator connection, workspace use, capability boundaries, roles, and troubleshooting. No runtime adapter is claimed.
 
-## 2026-10-13 — Saved-position restore candidate
-- Public docs describe the proposed ID-or-name restore syntax and explicit voxel-clear option as unreleased candidate behavior only. Do not describe it as available in alpha.5.8 or publish candidate binaries/checksums as current release artifacts.
+## 2026-10-13 — Saved-position restore alpha.5.9
+- Alpha.5.9 publishes ID-or-name saved-transform restoration and the explicit `-force location` voxel-clear option. The verified package and SHA-256 are recorded in README.md and CHANGELOG.md; no plugin source is included in this public repository.

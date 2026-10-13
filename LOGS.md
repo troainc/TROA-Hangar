@@ -9,6 +9,6 @@ Added docs/USER_GUIDE.md; connected it to the documentation index and README; re
 ## 2026-10-09 — Public Panel documentation
 - Expanded operator setup/workspace guidance and plugin-specific capability notes. Documentation-only; runtime acceptance was not performed.
 
-## 2026-10-13 — Saved-position restore candidate docs
-- Updated the README, player guide, command reference, documentation index, changelog, and repository context for the proposed ID-or-name restore command and explicit `-force location` mode.
-- Clearly marked this as unreleased and unavailable in public alpha.5.8. Dedicated-server voxel/physics acceptance is still pending; no binaries or runtime code were added.
+## 2026-10-13 — Saved-position restore alpha.5.9
+- Updated the README, player guide, command reference, documentation index, changelog, and repository context for the working ID-or-name restore command and `-force location` mode.
+- Published the package archive and checksum; in-game restore workflow confirmed. No plugin source or private configuration was added.

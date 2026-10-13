@@ -9,7 +9,8 @@ Commands are entered in Torch game chat unless the Discord relay section says ot
 | `!hangar help`, `!hangar helper` | Show player help. |
 | `!hangar store <name>` | Store the grid you are looking at. |
 | `!hangar list` | List your stored ships. |
-| `!hangar load <grid-id>` | Deploy one of your stored ships near you. |
+| `!hangar load <id-or-name>` | Restore one of your stored ships at its saved position and orientation. Names are case-insensitive; quote names with spaces. Use an ID when names are duplicated. |
+| `!hangar load <id-or-name> -force location` | If voxel terrain blocks the saved location, permanently clear the grid footprint plus 1 m clearance and restore the grid. Other grids still block placement and are never moved or removed. |
 | `!hangar claim <claim-code>` | Deploy a market purchase held for you. |
 | `!hangar status` | Show player storage status. |
 | `!hangar clean` | Repair your own storage/listing records. |
@@ -39,17 +40,6 @@ Commands are entered in Torch game chat unless the Discord relay section says ot
 | `!hangar market remotecommit <transaction-id>` | Commit the reserved purchase. |
 
 Some older/advanced player commands exist in the plugin but are omitted here until their setup and availability are verified for the current package. Use in-game help and the current README for the full release-specific list.
-
-## Saved-position restore candidate (not in the published alpha.5.8 package)
-
-The following syntax describes an unreleased candidate and will not work in the current alpha.5.8 package:
-
-| Candidate command | Intended use |
-|---|---|
-| `!hangar load <id-or-name>` | Select one of your stored grids by ID or name and restore it at its saved Hangar position. Quote names containing spaces, for example `!hangar load "My Fighter"`. |
-| `!hangar load <id-or-name> -force location` | Explicitly clear overlapping voxel terrain within the saved grid footprint and clearance, then restore at the saved position. Other grids are not removed or moved. |
-
-Force placement permanently removes voxel terrain in the affected area. This candidate has not passed dedicated-server terrain/physics acceptance; use only after a release explicitly includes it.
 
 ## Administrator commands
 

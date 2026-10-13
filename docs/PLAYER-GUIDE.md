@@ -7,15 +7,11 @@ Hangar+ is a server-side Torch plugin. You use it through in-game chat; no clien
 1. Be near and look directly at a grid you own. The default look distance is 1,000 meters.
 2. Store it with `!hangar store <name>`, for example `!hangar store Scout`. Hangar+ moves the grid into your personal server storage.
 3. See stored ships with `!hangar list`.
-4. Retrieve one with `!hangar load <grid-id>`. Hangar+ searches for clear space near you. If there is no safe spot, the grid remains stored.
+4. Retrieve one with `!hangar load <id-or-name>`. Hangar+ restores it at its saved position and orientation. You can use the grid ID or exact name; name matching ignores letter case. Quote names with spaces, such as `!hangar load "My Fighter"`. If names are duplicated, use the grid ID.
 
 A grid must meet the server owner's size, block, PCU, ownership, and storage limits. Ask an administrator if a command reports that a limit blocked the action.
 
-## Saved-position restore candidate
-
-The current published alpha.5.8 package restores grids in clear space near you. A separate, unreleased candidate is intended to restore a grid at its saved Hangar position. It would accept either the stored grid ID or name, such as `!hangar load <id-or-name>`; quote a multiword name: `!hangar load "My Fighter"`.
-
-If voxel terrain overlaps that saved position, the candidate's explicit `!hangar load <id-or-name> -force location` option is intended to remove voxel terrain inside the grid footprint and clearance before restoring. It will not move or remove other grids. Clearing voxel terrain is permanent. These commands are not available in alpha.5.8, and the candidate still needs dedicated-server validation. Wait for a release note confirming availability before using them.
+If voxel terrain overlaps the saved footprint, use `!hangar load <id-or-name> -force location` to clear the calculated grid footprint plus 1 m clearance, then restore at the saved position. This permanently removes voxel terrain in that area. Another grid at the saved position still blocks restore; force does not move or remove grids. This behavior is available in alpha.5.9.
 
 ## Buy or sell a ship
 

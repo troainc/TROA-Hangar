@@ -8,7 +8,7 @@ Use these guides with the public [sample configuration](../TROA-Hangar.cfg.examp
 - [Command reference](COMMANDS.md): player and administrator command syntax, plus Discord command restrictions.
 - [Troubleshooting](TROUBLESHOOTING.md): common storage, market, Discord, and deployment problems.
 
-The saved-position restore and `-force location` syntax currently documented in the [player guide](PLAYER-GUIDE.md#saved-position-restore-candidate) and [command reference](COMMANDS.md#saved-position-restore-candidate-not-in-the-published-alpha58-package) describe an unreleased candidate. They are not available in the published alpha.5.8 package.
+Saved-position restore by ID or name and the explicit `-force location` voxel-clear option are available in alpha.5.9. See the [player guide](PLAYER-GUIDE.md#store-and-retrieve-your-ship) and [command reference](COMMANDS.md#player-commands) for usage and safety details.
 
 Hangar+ owns Hangar storage, market listings, auctions, claims, commodity exchange, and its market webhook. Monitor+ can relay eligible chat commands from Discord; Econ+ can optionally handle durable credit escrow. Neither is required for basic Hangar storage or market operation.
 

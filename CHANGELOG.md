@@ -1,7 +1,9 @@
-## 2026-10-13 — Saved-position restore candidate documentation
+## v2.0.0-alpha.5.9 - Restore grids to saved Hangar positions
 
-- Added public-facing guidance for a candidate `!hangar load <id-or-name> -force location` workflow. The selector accepts one stored grid ID or name; quote names containing spaces. The candidate would restore a grid at its saved Hangar position and, only with the explicit force option, clear overlapping voxel terrain inside the grid footprint plus clearance.
-- This documents the proposed/private candidate only. It is **not included** in the published v2.0.0-alpha.5.8 spawn-clearance package; force placement has not passed dedicated-server terrain/physics acceptance. The public package checksum and current-release instructions remain unchanged.
+- Player `!hangar load <id-or-name>` restores a stored grid at its saved position and orientation. Select by ID or exact name; names match case-insensitively, quote names containing spaces, and use the ID to disambiguate duplicate names.
+- If voxel terrain overlaps the saved grid footprint, `!hangar load <id-or-name> -force location` clears the calculated grid footprint plus 1 m clearance and then restores the grid. Voxel removal is permanent after successful restore. Another grid at the saved location blocks loading; force does not move or remove grids.
+- Name/list-number restores now remove the catalog entry by the resolved grid ID, preventing stale catalog rows.
+- Restore workflow confirmed in game. Package: [TROA-Hangar-v2.0.0-alpha.5.9-saved-location-restore.zip](TROA-Hangar-v2.0.0-alpha.5.9-saved-location-restore.zip); SHA-256 `BA36CDA970ED012589E8DA337CC04D29C580A297DE0A8D3D954140C3CD7795BA`. Build/package succeeded with zero warnings and errors.
 
 ## 2026-10-09 — Bifrost Plugin Panel operator guide
 
