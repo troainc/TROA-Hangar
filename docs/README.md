@@ -8,6 +8,8 @@ Use these guides with the public [sample configuration](../TROA-Hangar.cfg.examp
 - [Command reference](COMMANDS.md): player and administrator command syntax, plus Discord command restrictions.
 - [Troubleshooting](TROUBLESHOOTING.md): common storage, market, Discord, and deployment problems.
 
+The saved-position restore and `-force location` syntax currently documented in the [player guide](PLAYER-GUIDE.md#saved-position-restore-candidate) and [command reference](COMMANDS.md#saved-position-restore-candidate-not-in-the-published-alpha58-package) describe an unreleased candidate. They are not available in the published alpha.5.8 package.
+
 Hangar+ owns Hangar storage, market listings, auctions, claims, commodity exchange, and its market webhook. Monitor+ can relay eligible chat commands from Discord; Econ+ can optionally handle durable credit escrow. Neither is required for basic Hangar storage or market operation.
 
 ## Start here
@@ -15,7 +17,6 @@ Hangar+ owns Hangar storage, market listings, auctions, claims, commodity exchan
 Read the [detailed user and operator guide](USER_GUIDE.md) for supported setup, feature workflows, safe operation, and troubleshooting.
 
 
-
 ## Bifrost Plugin Panel
 
-[Connect and use the Panel workspace](BIFROST-PLUGIN-PANEL.md)
+[Connecting and using this plugin workspace](BIFROST-PLUGIN-PANEL.md)

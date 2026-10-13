@@ -40,6 +40,17 @@ Commands are entered in Torch game chat unless the Discord relay section says ot
 
 Some older/advanced player commands exist in the plugin but are omitted here until their setup and availability are verified for the current package. Use in-game help and the current README for the full release-specific list.
 
+## Saved-position restore candidate (not in the published alpha.5.8 package)
+
+The following syntax describes an unreleased candidate and will not work in the current alpha.5.8 package:
+
+| Candidate command | Intended use |
+|---|---|
+| `!hangar load <id-or-name>` | Select one of your stored grids by ID or name and restore it at its saved Hangar position. Quote names containing spaces, for example `!hangar load "My Fighter"`. |
+| `!hangar load <id-or-name> -force location` | Explicitly clear overlapping voxel terrain within the saved grid footprint and clearance, then restore at the saved position. Other grids are not removed or moved. |
+
+Force placement permanently removes voxel terrain in the affected area. This candidate has not passed dedicated-server terrain/physics acceptance; use only after a release explicitly includes it.
+
 ## Administrator commands
 
 All `!hangaradmin` commands require Torch admin privileges.

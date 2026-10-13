@@ -1,7 +1,17 @@
+## 2026-10-13 — Saved-position restore candidate documentation
+
+- Added public-facing guidance for a candidate `!hangar load <id-or-name> -force location` workflow. The selector accepts one stored grid ID or name; quote names containing spaces. The candidate would restore a grid at its saved Hangar position and, only with the explicit force option, clear overlapping voxel terrain inside the grid footprint plus clearance.
+- This documents the proposed/private candidate only. It is **not included** in the published v2.0.0-alpha.5.8 spawn-clearance package; force placement has not passed dedicated-server terrain/physics acceptance. The public package checksum and current-release instructions remain unchanged.
+
 ## 2026-10-09 — Bifrost Plugin Panel operator guide
 
-- Adds connection steps in the README and a detailed operator guide for opening this plugin’s workspace, permissions, settings, commands, and troubleshooting.
-- Describes expected plugin-owned views only when the installed build exposes real data or safe controls. Documentation only; no runtime adapter or behavior change is claimed.
+- Expanded the public README and added a step-by-step guide for connecting through Admin Overseer, opening this plugin’s workspace, understanding permissions, and troubleshooting read-only or missing data.
+- Documented plugin-specific information operators may see, while making availability conditional on the installed plugin build exposing real data or safe controls. Documentation only; no runtime adapter or plugin behavior change is claimed.
+
+## 2026-10-09 — Bifrost Plugin Panel integration guidance
+
+- Clarifies the rebranded Panel name and plugin ownership boundary. Documentation only; no plugin binary or runtime adapter change is claimed.
+- See docs/BIFROST-PLUGIN-PANEL.md.
 
 ## Public operator documentation expansion - 2026-10-06
 
@@ -102,4 +112,3 @@
 - Added a player guide, server-owner install and setup guide, configuration reference, command reference, and troubleshooting guide for the current public alpha.5.8 package.
 - Clarified that Hangar+ owns grid storage, markets, and market webhooks; Monitor+ only relays configured commands; Econ+ settlement is optional.
 - Kept the existing full sample configuration as the public config reference and called out secret fields that must remain private.
-
