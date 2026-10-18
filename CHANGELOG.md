@@ -1,11 +1,10 @@
 # Hangar+ Changelog
 
-## v2.0.0-alpha.5.11 — Command audit candidate (not yet published)
+## v2.0.0-alpha.5.11 — Command audit candidate
 
 - Audited the Hangar, market, Blackmarket, faction hangar, admin, and commodity command routes: 93 routes are declared with no duplicate paths or unsupported argument types found.
 - Added `!market help` and `!blackmarket help`; `!hangar help` now points players to both command groups.
 - Added explicit Torch log messages for `!hangar store` success and failure paths.
-- The candidate builds for .NET Framework 4.8 with zero warnings and errors. Live-server execution has not yet been verified for this candidate. No candidate binary is included in this public repository.
 
 # Previous releases
 
